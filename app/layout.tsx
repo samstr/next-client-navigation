@@ -1,16 +1,22 @@
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+import type { PropsWithChildren } from "react";
+
+import Link from "next/link";
+
+export default function RootLayout({ children }: PropsWithChildren) {
   return (
     <html lang="en">
-      {/*
-        <head /> will contain the components returned by the nearest parent
-        head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
-      */}
       <head />
-      <body>{children}</body>
+      <body>
+        <ul>
+          <li>
+            <Link href="/signup">Signup test</Link>
+          </li>
+          <li>
+            <Link href="/login">Login test</Link>
+          </li>
+        </ul>
+        {children}
+      </body>
     </html>
   );
 }
